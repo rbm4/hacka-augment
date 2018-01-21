@@ -13,10 +13,10 @@
            <li class="nav-item">
             <a class="nav-link" href="/demand/type/completas">Completas</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item navbar-right">
               <form class="form-inline">
                 <input class="form-control mr-sm-2" type="procurar" placeholder="Procurar" aria-label="Search">
-                <button class="btn btn-primary" type="submit">Procurar</button>
+                <button class="btn btn-primary" style="margin-right: 15px;"type="submit">Procurar</button>
               </form>
           </li>
         </ul>
@@ -111,5 +111,9 @@
   $("button[data-entregaid]").click(function(){
     $(".modal-content-form").html('<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>')
     $.get(`/demand/update/${$(this).data("entregaid")}`)
+  })
+  $(".list-group-item").hover(function(){
+    $(".list-group-item").removeClass("active");
+    $(this).addClass("active");
   })
 </script>
