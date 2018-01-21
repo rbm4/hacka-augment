@@ -1,6 +1,6 @@
 <fieldset>
     <legend><h2>Formulário de Entrega de solução</h2></legend>
-    <% if (@object.entrega.where("user_id = :uid",{uid: current_user.id})).empty? %>
+    <% if (@object.entrega.where("user_id = :uid",{uid: current_user.id.to_s})).empty? %>
     Utilize o formulário abaixo para submeter sua solução:
     <%= form_for @entrega do |f| %>
     <div class="form-group">
