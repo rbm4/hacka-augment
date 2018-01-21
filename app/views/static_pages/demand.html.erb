@@ -1,4 +1,4 @@
-<nav class="navbar navbar_no_margin navbar_content navbar-inverse bg-primary">
+<nav class="navbar navbar_no_margin navbar_content navbar-light bg-light">
     <div class="row">
         <div class="col-md-2 col-xs-2">
           <img src="<%= @demand.image_path %>" style="margin-left:10px;margin-bottom:5px;" class="img-thumbnail thumbnails">
@@ -11,13 +11,13 @@
             <br>Para realizar submissões, <b>realize seu cadastro!</b>
             <% end %>
         </div>
-        <div align="center" class="col-md-2 col-xs-8">
+        <div align="center" class="col-md-2 col-xs-2">
             Premiação<br>
             <h4>R$ <%= @demand.value %>,00</h4><br><br>
         </div>
   </div>
 </nav>
-<nav class="navbar navbar-inverse bg-primary">
+<nav class="navbar navbar-light bg-light">
     <div class="row">
         <div align="center" class="details_nav col-md-2 col-xs-2">
             <a href="/demand/details/<%= @demand.id %>" class="btn btn-secondary">Visão geral</a>

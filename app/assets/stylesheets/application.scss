@@ -17,9 +17,10 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 body{
-    background-image: url("http://www.michiganarchitecturalfoundation.org/wp-content/uploads/2017/01/Grey-Gradient-Background-Fresh-99688.jpg");
+    //background-image: url("http://ww.michiganarchitecturalfoundation.org/wp-content/uploads/2017/01/Grey-Gradient-Background-Fresh-99688.jpg");
+    background-color:#F2F2F2;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -39,4 +40,7 @@ body{
 }
 .navbar-light{
     min-height: 0px !important;
+}
+.title{
+    font-family: 'Source Sans Pro', sans-serif;
 }

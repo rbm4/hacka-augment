@@ -90,6 +90,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro");
 /* line 9, /usr/local/rvm/gems/ruby-2.3.4/gems/bootstrap-sass-3.3.7/assets/stylesheets/bootstrap/_normalize.scss */
 html {
   font-family: sans-serif;
@@ -8866,12 +8867,12 @@ button.close {
 }
 /* line 22, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
 body {
-  background-image: url("http://www.michiganarchitecturalfoundation.org/wp-content/uploads/2017/01/Grey-Gradient-Background-Fresh-99688.jpg");
+  background-color: #F2F2F2;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+/* line 29, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
 .content {
   background-color: white;
   border-radius: 10px;
@@ -8879,7 +8880,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
 .logged_navbar {
   padding-top: 15px;
   background-color: #3085E8;
@@ -8888,9 +8889,14 @@ body {
   margin-bottom: 7vh;
 }
 
-/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
 .navbar-light {
   min-height: 0px !important;
+}
+
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+.title {
+  font-family: 'Source Sans Pro', sans-serif;
 }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

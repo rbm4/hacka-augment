@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get '/offer/details/:id', to: 'static_pages#offer'
   get '/user/index', to: 'users#index'
   
-  delete '/sign_out', to: 'user_sessions#destroy', as: :sign_out
+  match '/sign_out', to: 'user_sessions#destroy', as: :sign_out, via: [:get,:delete]
   get '/sign_in', to: 'user_sessions#new', as: :sign_in
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
