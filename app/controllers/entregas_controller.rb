@@ -14,7 +14,7 @@ class EntregasController < ApplicationController
     def update
         @entrega = Entrega.find(entregas_params[:id])
         @entrega.score = entregas_params[:score]
-        @entrega.status = entregas_params[:status]
+        @entrega.status = params[:status]
         if @entrega.save
            redirect_to '/demand/type/rate_submits'
         end

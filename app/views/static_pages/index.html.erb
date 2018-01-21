@@ -48,7 +48,7 @@
               </li></a>
             <% elsif demand.is_a?(Entrega) %>
             
-            <a style="color:black;" <% if @current_user.tipo != "parceiro" %>href="/demand/details/<%= demand.demand_id %>"<% else %><% end %>>
+            <a style="color:black;" <% if current_user.tipo.downcase != "parceiro" %>href="/demand/details/<%= demand.demand_id %>"<% end %>>
               <li class="list-group-item <% if demand == @demand.first %>active<% end %>">
                 <div class="row">
                     <div class="col-md-2">
@@ -62,9 +62,11 @@
                     </div>
                     <div class="col-md-3">
                       <h4>Status: <%= stat_label(demand.status) %></h4><br>
+                      <% if current_user.tipo.downcase == "parceiro" %>
                       <button type="button" class="btn btn-warning" data-entregaid="<%= demand.id %>" data-toggle="modal" data-target="#exampleModal">
                         Avaliar
                       </button>
+                      <% end %>
                     </div>
                   </div>
               </li></a>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120131012) do
+ActiveRecord::Schema.define(version: 20180121004448) do
 
   create_table "demands", force: :cascade do |t|
     t.string   "name"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20180120131012) do
     t.string   "password_salt"
     t.string   "persistence_token"
     t.string   "tipo"
+    t.string   "password"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
