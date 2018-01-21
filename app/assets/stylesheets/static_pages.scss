@@ -2,10 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.index_title{
-    margin: 20px;
+.img-thumbnail{
+    border: 0px !important;
 }
-
+.index_demands{
+    max-height: 26vh;
+}
 .navbar_plate{
     background: #47494d;
 }
@@ -47,7 +49,4 @@
     padding-right: 0px !important;
     margin-left: 0px !important;
     margin-right: 0px !important;
-}
-#banner{
-    
 }

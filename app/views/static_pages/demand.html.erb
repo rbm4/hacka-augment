@@ -43,6 +43,8 @@
 <script>
 $('div[data-content]').click(function(){
         $("li[data-content]").removeClass("active")
+         $(".title_demand_overview").html($(this).text())
         $.get(`/details/partial/${$(this).data("content")}/<%= @demand.id %>`)
     })
+    
 </script>

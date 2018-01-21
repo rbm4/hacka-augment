@@ -36,11 +36,30 @@ body{
     background-color: #3085E8;
     background-repeat: no-repeat;
     background-size: 100%;
-    margin-bottom: 7vh;
+    margin-bottom: 20px;
 }
 .navbar-light{
     min-height: 0px !important;
 }
 .title{
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+.text{
+    font-family: 'Roboto', sans-serif;
+}
+legend{
+    @extend .title;
+}
+h1{
+    @extend .title;
+}
+h2{
+    @extend .title;
+}
+h3{
+    @extend .title;
+}
+h4{
+    @extend .title;
 }

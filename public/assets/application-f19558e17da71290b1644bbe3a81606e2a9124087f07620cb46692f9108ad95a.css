@@ -8,58 +8,63 @@
   color: red;
 }
 /* line 5, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
-.index_title {
-  margin: 20px;
+.img-thumbnail {
+  border: 0px !important;
 }
 
-/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 8, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+.index_demands {
+  max-height: 26vh;
+}
+
+/* line 11, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .navbar_plate {
   background: #47494d;
 }
 
-/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 14, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .no-margin {
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
 
-/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 19, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .thumbnails {
   height: 130px;
   width: 130px;
 }
 
-/* line 22, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .navbar_content {
   padding-top: 7px;
 }
 
-/* line 26, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .padding-buttons {
   padding-top: 15px;
 }
 
-/* line 30, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .navbar_no_margin {
   margin-bottom: 0px !important;
 }
 
-/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 36, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .email_space {
   padding-right: 10px;
 }
 
-/* line 38, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .details_nav {
   padding-top: 1vh;
 }
 
-/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .pointer {
   cursor: pointer;
 }
 
-/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+/* line 47, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
 .padding-nav {
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -8886,7 +8891,7 @@ body {
   background-color: #3085E8;
   background-repeat: no-repeat;
   background-size: 100%;
-  margin-bottom: 7vh;
+  margin-bottom: 20px;
 }
 
 /* line 42, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
@@ -8895,8 +8900,13 @@ body {
 }
 
 /* line 45, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
-.title {
+.title, legend, h1, h2, h3, h4 {
   font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* line 49, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+.text {
+  font-family: 'Roboto', sans-serif;
 }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome

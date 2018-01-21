@@ -1,1 +1,7 @@
-$( ".content-detail" ).html( "<%= escape_javascript( render( :partial => "demand/#{params[:partial]}") ) %>" );
+<% case params[:partial] %>
+<% when "ranking", "made_submits" %>
+<% string = "content_all_detail" %>
+<% else %>
+<% string = "content-detail" %>
+<% end %>
+$( ".<%= string %>" ).html( "<%= escape_javascript( render( :partial => "demand/#{params[:partial]}") ) %>" );

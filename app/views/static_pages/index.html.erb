@@ -32,13 +32,13 @@
         <% @demand.each do |demand| %>
             <% if demand.is_a?(Demand)%>
               <a style="color:black;" href="/demand/details/<%= demand.id %>"><li class="list-group-item <% if demand == @demand.first %>active<% end %>">
-                <div class="row">
+                <div class="index_demands row">
                     <div class="col-md-2 col-xs-2">
                       <img src="<%= demand.image_path %>"  class="img-thumbnail thumbnails">
                     </div>
                     <div class="col-md-8 col-xs-8">
                       <h4><%= demand.name.capitalize %></h4>
-                      <p><%= demand.short_description.capitalize %></p>
+                      <p><%= demand.short_description.capitalize[0..300] %><% if demand.short_description.size > 300%>...<% end %></p>
                     </div>
                     <div class="col-md-2 col-xs-2">
                         <h4>R$ <%= demand.value %>,00</h4><br>
@@ -50,13 +50,13 @@
             
             <a style="color:black;" <% if current_user.tipo.downcase != "parceiro" %>href="/demand/details/<%= demand.demand_id %>"<% end %>>
               <li class="list-group-item <% if demand == @demand.first %>active<% end %>">
-                <div class="row">
+                <div class="index_demands row">
                     <div class="col-md-2 col-xs-2">
                       <img src="<%= Demand.find(demand.demand_id).image_path %>"  class="img-thumbnail thumbnails">
                     </div>
                     <div class="col-md-7 col-xs-7">
                       <h4><%= demand.title.capitalize %></h4>
-                      <p><b>Descrição:</b> <%= demand.description[0..30] %>...<br>
+                      <p><b>Descrição:</b> <%= demand.description[0..30] %><% if demand.description.size > 30%>...<% end %><br>
                       Repositório: <%= demand.repository_link %>
                       </p>
                     </div>
@@ -72,11 +72,11 @@
               </li></a>
             <% elsif demand.is_a?(Offer) %>
               <a style="color:black;" href="/offer/details/<%= demand.id %>"><li class="list-group-item <% if demand == @demand.first %>active<% end %>">
-                <div class="row">
+                <div class="index_demands row">
                    
                     <div class="col-md-10 col-xs-10">
                       <h4><%= demand.name.capitalize %></h4>
-                      <p><%= demand.short_description %></p>
+                      <p> <%= demand.description[0..30] %><% if demand.description.size > 30%>...<% end %></p>
                     </div>
                     <div class="col-md-2 col-xs-2">
                       R$ <%= demand.value %>

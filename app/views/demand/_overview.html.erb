@@ -1,6 +1,6 @@
 <fieldset>
-    <legend>Visão geral.</legend>
-    <div class="row">
+    <legend class="title_demand_overview">Visão geral</legend>
+    <div class="row content_all_detail">
         <div class="col-md-3 col-xs-3">
             <ul class="list-group">
               <li data-content="description" class="pointer list-group-item active">Descrição</li>
@@ -24,6 +24,7 @@
     $('li[data-content]').click(function(){
         $("li[data-content]").removeClass("active")
         $(this).addClass("active")
+       
         $.get(`/details/partial/${$(this).data("content")}/<%= @demand.id %>`)
     })
 </script>
