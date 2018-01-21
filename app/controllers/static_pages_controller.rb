@@ -3,17 +3,19 @@ class StaticPagesController < ApplicationController
         user = current_user
         case params[:tipo]
         when nil,"demand"
-            @demand = Demand.all.order(created_at: :desc)
+            @demand = Demand.where('tipo = :tpp',{tpp: "demand"}).order(created_at: :desc)
         when "ofertas"
             @demand = Offer.all.order(created_at: :desc)
         when "userOffer"
             @demand = current_user.offer.all.order(created_at: :desc)
         when "user"
-            @demand = current_user.demand.all.order(created_at: :desc)
+            @demand = current_user.demand.where("tipo = :tpp", {tpp:"demand"}).order(created_at: :desc)
         when "submits"
             @demand = current_user.entrega.where("status = :stt",{stt: "analise"})
-        when "historys"
+        when "histories"
             @demand = current_user.entrega.where("status != :stt",{stt: "analise"})
+        when "demand_histories"
+            @demand = current_user.demand.all
         when "rate_submits"
             @demand = []
             current_user.demand.where("tipo = :tpp",{tpp: "demand"}).each do |k|
@@ -32,6 +34,12 @@ class StaticPagesController < ApplicationController
     def demand_update
         @entregas = Entrega.find(params[:id])
         @demand = Demand.find(@entregas.demand_id)
+    end
+    def demand_finalize
+        @demand = Demand.find(params[:id])
+        @demand.tipo = "demand_complete"
+        @demand.save
+        redirect_to "/demand/details/#{@demand.id}"
     end
     def partials
         @object = Demand.find(params[:id])

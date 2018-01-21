@@ -1,14 +1,17 @@
 <fieldset>
     <legend>Visão geral.</legend>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 col-xs-3">
             <ul class="list-group">
               <li data-content="description" class="pointer list-group-item active">Descrição</li>
               <li data-content="rules" class="pointer list-group-item">Regras</li>
               <li data-content="evail" class="pointer list-group-item">Avaliação</li>
+              <% if (current_user && (current_user.id.to_s == @demand.user_id.to_s)) %>
+              <li data-content="conclude" class="pointer list-group-item list-group-item-danger">Finalizar</li>
+              <% end %>
             </ul>
         </div>
-        <div class="col-md-8 content-detail">
+        <div class="col-md-8 col-xs-3 content-detail">
             
         </div>
     </div>

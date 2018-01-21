@@ -1,0 +1,46 @@
+<fieldset>
+    <legend>Utilize esta sessão para dar a demanda como finalizada.</legend>
+    Ao prosseguir, você assume que as entregas aceitas seguiram todas as regras e, de acordo com o ranking, estão aptas a receber alguma parte da premiação desta demanda.<br>
+    Esteja certo de que deseja finalizar esta demanda:<br>
+    <b>-></b>Ela não pode ser reaberta <br>
+    <b>-></b>O prêmio será distribuído de acordo com o ranking <br>
+    <b>-></b> <br>
+    <% if @object.tipo != "demand_complete" %>
+     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+         Finalizar
+    </button>
+    <% else %>
+        <div class="alert alert-danger" role="alert">
+          <strong>Demanda já finalizada</strong>
+        </div>
+    <% end %>
+</fieldset>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Deseja mesmo finalizar?</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-content-form">
+         <button type="button" class="btn btn-primary" data-finalizar="<%= @object.id %>" id="btnConfirmar">
+             Sim
+        </button>
+         <button type="button" class="btn btn-primary"  data-dismiss="modal">
+             Não
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+      $("button[data-finalizar]").click(function(){
+    
+    $.get(`/demand/finalize/${$(this).data("finalizar")}`)
+  })
+</script>

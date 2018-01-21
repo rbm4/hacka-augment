@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
   def user_submits_number
     current_user.entrega.all.size
   end
+  def history_submit_number
+    current_user.entrega.where("status != :stt", {stt:"analise"}).size
+  end
+  def history_demand_number
+    current_user.demand.all.size
+  end
   def current_user_session
     return @current_user_session if defined?(@current_user_session)
     @current_user_session = UserSession.find
@@ -36,6 +42,6 @@ class ApplicationController < ActionController::Base
       string
     end
   end
-  helper_method :current_user_session, :current_user, :demands_number, :demands_submits_number, :offers_number, :user_submits_number, :stat_label
+  helper_method :current_user_session, :current_user, :demands_number, :demands_submits_number, :offers_number, :user_submits_number, :stat_label, :history_submit_number, :history_demand_number
   
 end

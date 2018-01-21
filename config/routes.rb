@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   
   get '/demand/details/:id', to: 'static_pages#demand'
   get '/demand/update/:id', to: 'static_pages#demand_update'
+  get '/demand/finalize/:id', to: 'static_pages#demand_finalize'
   get '/demand/type/:tipo', to: 'static_pages#index'
   get '/demand/details/:id/:detail', to: 'demands#demand_details'
   get '/details/partial/:partial/:id', to: 'static_pages#partials'

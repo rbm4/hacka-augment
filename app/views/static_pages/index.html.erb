@@ -1,7 +1,7 @@
 
 <div class="row">
     
-     <div class="col-md-12">
+     <div class="col-md-12 col-xs-12">
          <nav class="navbar navbar_no_margin navbar_content navbar-inverse bg-primary">
          <ul class="nav nav-tabs">
           <li class="nav-item">
@@ -11,7 +11,7 @@
             <a class="nav-link" href="/demand/type/ofertas">Ofertas</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="/demand/type/completas">Completas</a>
+            <a class="nav-link" href="/demand/type/demand_complete">Completas</a>
           </li>
           <li class="nav-item navbar-right">
               <form class="form-inline">
@@ -24,7 +24,7 @@
     </div>    
 </div>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 col-xs-12">
         <ul class="list-group">
         <% if @demand.empty? %>
         <div align="center"><h2>Não existem Demandas abertas nesta modalidade!</h2></div>
@@ -51,23 +51,21 @@
             <a style="color:black;" <% if current_user.tipo.downcase != "parceiro" %>href="/demand/details/<%= demand.demand_id %>"<% end %>>
               <li class="list-group-item <% if demand == @demand.first %>active<% end %>">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-xs-2">
                       <img src="<%= Demand.find(demand.demand_id).image_path %>"  class="img-thumbnail thumbnails">
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-7 col-xs-7">
                       <h4><%= demand.title.capitalize %></h4>
                       <p><b>Descrição:</b> <%= demand.description[0..30] %>...<br>
                       Repositório: <%= demand.repository_link %>
                       </p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 col-xs-3">
                       <h4>Status: <%= stat_label(demand.status) %></h4><br>
                       <% if current_user.tipo.downcase == "parceiro" %>
                       <button type="button" class="btn btn-warning" data-entregaid="<%= demand.id %>" data-toggle="modal" data-target="#exampleModal">
                         Avaliar
                       </button>
-                      <%elsif demand.status !+ "analise" %>
-                      <p><b>Status:</b></p> <%= demand.status %>
                       <% end %>
                     </div>
                   </div>
@@ -76,11 +74,11 @@
               <a style="color:black;" href="/offer/details/<%= demand.id %>"><li class="list-group-item <% if demand == @demand.first %>active<% end %>">
                 <div class="row">
                    
-                    <div class="col-md-10">
+                    <div class="col-md-10 col-xs-10">
                       <h4><%= demand.name.capitalize %></h4>
                       <p><%= demand.short_description %></p>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-xs-2">
                       R$ <%= demand.value %>
                     </div>
                   </div>

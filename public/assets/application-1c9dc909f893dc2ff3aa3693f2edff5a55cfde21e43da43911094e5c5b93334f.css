@@ -58,6 +58,14 @@
 .pointer {
   cursor: pointer;
 }
+
+/* line 45, /home/ubuntu/workspace/app/assets/stylesheets/static_pages.scss */
+.padding-nav {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
 @charset "UTF-8";
 /*
 * This is a manifest file that'll be compiled into application.css, which will include all the files

@@ -1,9 +1,7 @@
 class DemandsController < ApplicationController
     def create
-        if current_user.tipo.downcase == "parceiro"
-            @demand = current_user.demand.new(demand_params)
-            @demand.tipo = "demand"
-        end
+        @demand = current_user.demand.new(demand_params)
+        @demand.tipo = "demand"
         if @demand.save
           flash[:success] = "Demanda iniciada!"
           redirect_to '/user/index'
