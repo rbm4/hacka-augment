@@ -12,6 +12,8 @@ class StaticPagesController < ApplicationController
             @demand = current_user.demand.all.order(created_at: :desc)
         when "submits"
             @demand = current_user.entrega.where("status = :stt",{stt: "analise"})
+        when "historys"
+            @demand = current_user.entrega.where("status != :stt",{stt: "analise"})
         when "rate_submits"
             @demand = []
             current_user.demand.where("tipo = :tpp",{tpp: "demand"}).each do |k|

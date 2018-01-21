@@ -66,6 +66,8 @@
                       <button type="button" class="btn btn-warning" data-entregaid="<%= demand.id %>" data-toggle="modal" data-target="#exampleModal">
                         Avaliar
                       </button>
+                      <%elsif demand.status !+ "analise" %>
+                      <p><b>Status:</b></p> <%= demand.status %>
                       <% end %>
                     </div>
                   </div>
