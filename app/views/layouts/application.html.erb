@@ -35,7 +35,7 @@
                   <% if current_user %>
                   <table>
                       <tr>
-                          <td class="white email_space"><%= current_user.email.capitalize %></td>
+                          <td class="white email_space"><%= current_user.email %></td>
                           <td>
                             <%= link_to sign_out_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
                                 Logout
