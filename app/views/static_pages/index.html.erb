@@ -1,0 +1,113 @@
+
+<div class="row">
+    
+     <div class="col-md-12">
+         <nav class="navbar navbar_no_margin navbar_content navbar-inverse bg-primary">
+         <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="/demand/type/demand">Demandas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/demand/type/ofertas">Ofertas</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="/demand/type/completas">Completas</a>
+          </li>
+          <li class="nav-item">
+              <form class="form-inline">
+                <input class="form-control mr-sm-2" type="procurar" placeholder="Procurar" aria-label="Search">
+                <button class="btn btn-primary" type="submit">Procurar</button>
+              </form>
+          </li>
+        </ul>
+        </nav>
+    </div>    
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+        <% if @demand.empty? %>
+        <div align="center"><h2>Não existem Demandas abertas nesta modalidade!</h2></div>
+        <% end %>
+        <% @demand.each do |demand| %>
+            <% if demand.is_a?(Demand)%>
+              <a style="color:black;" href="/demand/details/<%= demand.id %>"><li class="list-group-item <% if demand == @demand.first %>active<% end %>">
+                <div class="row">
+                    <div class="col-md-2 col-xs-2">
+                      <img src="<%= demand.image_path %>"  class="img-thumbnail thumbnails">
+                    </div>
+                    <div class="col-md-8 col-xs-8">
+                      <h4><%= demand.name.capitalize %></h4>
+                      <p><%= demand.short_description.capitalize %></p>
+                    </div>
+                    <div class="col-md-2 col-xs-2">
+                        <h4>R$ <%= demand.value %>,00</h4><br>
+                        Submissões: <%= demand.entrega.all.size %>
+                    </div>
+                  </div>
+              </li></a>
+            <% elsif demand.is_a?(Entrega) %>
+            
+            <a style="color:black;" <% if @current_user.tipo != "parceiro" %>href="/demand/details/<%= demand.demand_id %>"<% else %><% end %>>
+              <li class="list-group-item <% if demand == @demand.first %>active<% end %>">
+                <div class="row">
+                    <div class="col-md-2">
+                      <img src="<%= Demand.find(demand.demand_id).image_path %>"  class="img-thumbnail thumbnails">
+                    </div>
+                    <div class="col-md-7">
+                      <h4><%= demand.title.capitalize %></h4>
+                      <p><b>Descrição:</b> <%= demand.description[0..30] %>...<br>
+                      Repositório: <%= demand.repository_link %>
+                      </p>
+                    </div>
+                    <div class="col-md-3">
+                      <h4>Status: <%= stat_label(demand.status) %></h4><br>
+                      <button type="button" class="btn btn-warning" data-entregaid="<%= demand.id %>" data-toggle="modal" data-target="#exampleModal">
+                        Avaliar
+                      </button>
+                    </div>
+                  </div>
+              </li></a>
+            <% elsif demand.is_a?(Offer) %>
+              <a style="color:black;" href="/offer/details/<%= demand.id %>"><li class="list-group-item <% if demand == @demand.first %>active<% end %>">
+                <div class="row">
+                   
+                    <div class="col-md-10">
+                      <h4><%= demand.name.capitalize %></h4>
+                      <p><%= demand.short_description %></p>
+                    </div>
+                    <div class="col-md-2">
+                      R$ <%= demand.value %>
+                    </div>
+                  </div>
+              </li></a>
+            <% end %>
+          <% end %>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Detalhes</h1>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal-content-form">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script> <!-- // script referente ao carregamento do formulário de análise -->
+  $("button[data-entregaid]").click(function(){
+    $(".modal-content-form").html('<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>')
+    $.get(`/demand/update/${$(this).data("entregaid")}`)
+  })
+</script>

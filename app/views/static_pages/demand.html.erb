@@ -1,0 +1,46 @@
+<nav class="navbar navbar_no_margin navbar_content navbar-inverse bg-primary">
+    <div class="row">
+        <div class="col-md-2">
+          <img src="<%= @demand.image_path %>"  class="img-thumbnail thumbnails">
+        </div>
+        <div class="col-md-8">
+          <h4><%= @demand.name.capitalize %></h4>
+          <p><%= @demand.short_description.capitalize %></p>
+          Submissões: <b><%= @demand.entrega.all.size %></b>
+          <% if !(current_user) %>
+            <br>Para realizar submissões, <b>realize seu cadastro!</b>
+            <% end %>
+        </div>
+        <div align="center" class="col-md-2">
+            Premiação<br>
+            <h4>R$ <%= @demand.value %>,00</h4><br><br>
+        </div>
+  </div>
+</nav>
+<nav class="navbar navbar-inverse bg-primary">
+    <div class="row">
+        <div align="center" class="details_nav col-md-2">
+            <a href="/demand/details/<%= @demand.id %>" class="btn btn-secondary">Visão geral</a>
+        </div>
+        <% if current_user %>
+        <div data-content="submit" align="center" class="details_nav col-md-2">
+            
+            <a class="btn btn-secondary">Submissões</a>
+        </div>
+        <% end %>
+        <div data-content="ranking" align="center" class="details_nav col-md-2">
+            <a class="btn btn-secondary">Ranking</a>
+        </div>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-md-12">
+        <%= render '/demand/overview' %>
+    </div>
+</div>
+<script>
+$('div[data-content]').click(function(){
+        $("li[data-content]").removeClass("active")
+        $.get(`/details/partial/${$(this).data("content")}/<%= @demand.id %>`)
+    })
+</script>

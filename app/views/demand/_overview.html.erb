@@ -1,0 +1,26 @@
+<fieldset>
+    <legend>Visão geral.</legend>
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group">
+              <li data-content="description" class="pointer list-group-item active">Descrição</li>
+              <li data-content="rules" class="pointer list-group-item">Regras</li>
+              <li data-content="evail" class="pointer list-group-item">Avaliação</li>
+            </ul>
+        </div>
+        <div class="col-md-8 content-detail">
+            
+        </div>
+    </div>
+</fieldset>
+
+<script>
+    $(document).ready(function(){
+        $.get("/details/partial/description/<%= @demand.id %>")
+    })
+    $('li[data-content]').click(function(){
+        $("li[data-content]").removeClass("active")
+        $(this).addClass("active")
+        $.get(`/details/partial/${$(this).data("content")}/<%= @demand.id %>`)
+    })
+</script>

@@ -1,0 +1,21 @@
+<nav class="navbar navbar_no_margin navbar_content navbar-inverse bg-primary">
+    <div class="row">
+        <div class="col-md-1">
+         
+        </div>
+        <div class="col-md-8">
+          <h4><%= @demand.name.capitalize %></h4>
+          <p><%= @demand.short_description.capitalize %></p>
+        </div>
+        <div align="center" class="col-md-2">
+           Valor:
+           R$ <%= @demand.value %>
+        </div>
+  </div>
+</nav>
+<div class="row">
+    <div class="col-md-12">
+        <%= render '/offer/overview' %>
+    </div>
+</div>
+

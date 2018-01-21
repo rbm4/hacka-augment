@@ -1,0 +1,26 @@
+<%= form_for(@entregas, remote: true) do |f| %>
+    <div class="form-group">
+        <%= f.label :title, "Nome do projeto" %>
+        <%= f.text_field :title, class: 'form-control', disabled: true %>
+    </div>
+    <div class="form-group">
+        <%= f.label :description, "Descrição" %>
+        <%= f.text_area :description, class: 'form-control', disabled: true, rows: "10" %>
+    </div>
+    <div class="form-group">
+        <%= f.label :repository_link, "Link do versionamento do projeto" %>
+        <%= f.text_field :repository_link, class: 'form-control', disabled: true %>
+    </div>
+    <%= f.hidden_field :demand_id, value: @entregas.demand_id %>
+    <%= f.hidden_field :id, value: @entregas.id %>
+    <div class="form-group">
+        <%= f.label :score, "Nota do projeto" %>
+        <%= f.number_field :score, class: 'form-control', required: true %>
+    </div>
+    <div class="form-group">
+        <%= select_tag :status, "<option>Aceita</option><option>Rejeitada</option>".html_safe, include_blank: true, class: 'form-control', required: true %>
+    </div>
+    <div class="form-group">
+        <%= f.submit "Submeter", class: 'form-control' %>
+    </div>
+<% end %>

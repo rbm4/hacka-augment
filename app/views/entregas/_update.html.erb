@@ -1,0 +1,26 @@
+<fieldset>
+    <legend><h2>Formulário de Avaliação da solução</h2></legend>
+    <%= form_for @entrega do |f| %>
+    <div class="form-group">
+        <%= f.label :title, "Nome do projeto" %>
+        <%= f.text_field :title, class: 'form-control', disabled: true, value: @object.title %>
+    </div>
+    <div class="form-group">
+        <%= f.label :description, "Descrição" %>
+        <%= f.text_area :description, class: 'form-control', disabled: true, value: @object.description %>
+    </div>
+    <div class="form-group">
+        <%= f.label :repository_link, "Link do versionamento do projeto" %>
+        <%= f.text_field :repository_link, class: 'form-control', disabled: true, value: @object.repository_link %>
+    </div>
+    <div class="form-group">
+        <%= f.label :score, "Nota" %>
+        <%= f.number :score, class: 'form-control', required: true %>
+    </div>
+    <%= f.hidden_field :demand_id, value: @object.id %>
+    <div class="form-group">
+        <%= f.submit "Enviar Nota", class: 'form-control', required: true %>
+    </div>
+    
+    <% end %>
+</fieldset>

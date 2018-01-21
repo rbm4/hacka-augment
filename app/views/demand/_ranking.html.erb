@@ -1,0 +1,24 @@
+<div class="row">
+    <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>E-mail</th>
+              <th>Título</th>
+              <th>Nota</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% cont = 0 %>
+            <% @objects.each do |commit| %>
+                
+                    <tr>
+                      <td><%= cont += 1 %>°</td>
+                      <td><%= User.find(commit.user_id).email %></td>
+                      <td><%= commit.title %></td>
+                      <td><%= commit.score %></td>
+                    </tr>
+            <%end%>
+     </tbody>
+    </table>
+</div>

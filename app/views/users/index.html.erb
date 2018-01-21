@@ -1,0 +1,68 @@
+<div class="page-header"><h1>Seja bem vindo!</h1></div>
+<div class="row">
+    <div class="col-md-12">
+        <% case current_user.tipo.downcase %>
+        <% when "parceiro" %>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Atividade</legend>
+                    Você tem um total de <b><%= demands_number %></b> demandas ativas.<br>
+                <a href="/demand/type/user">Verificar lista de suas demandas</a>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Atividade em suas demandas</legend>
+                    Você tem um total de <b><%= demands_submits_number %></b> submissões pendentes de análise.<br>
+                <a href="/demand/type/rate_submits">Verificar lista de submissões</a>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend><h1>Iniciar nova demanda</h1></legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <%= render '/demand/new' %>  
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        
+        <% when "colaborador" %>
+        <div class="row">
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Atividade</legend>
+                    Você tem um total de <b><%= offers_number %></b> ofertas ativas.<br>
+                <a href="/demand/type/userOffer">Verificar lista de suas ofertas</a>
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <legend>Submissões enviadas</legend>
+                    Você tem um total de <b><%= user_submits_number %></b> submissões enviadas.<br>
+                <a href="/demand/type/submits">Verificar lista de submissões</a>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <fieldset>
+                    <legend><h1>Iniciar nova oferta</h1></legend>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <%= render '/offer/new' %>  
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <% end %>
+        </p>
+    </div>
+</div>

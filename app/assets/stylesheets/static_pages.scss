@@ -1,0 +1,44 @@
+// Place all the styles related to the static_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index_title{
+    margin: 80px;
+}
+
+.navbar_plate{
+    background: #47494d;
+}
+.no-margin{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.thumbnails{
+    height:130px;
+    width:130px;
+}
+
+.navbar_content{
+    padding-top: 7px;
+    
+}
+.padding-buttons{
+    padding-top: 15px;
+}
+
+.navbar_no_margin{
+    margin-bottom: 0px !important;
+}
+
+.email_space{
+    padding-right: 10px;
+}
+
+.details_nav{
+    padding-top: 1vh;
+}
+
+.pointer{
+    cursor: pointer;
+}

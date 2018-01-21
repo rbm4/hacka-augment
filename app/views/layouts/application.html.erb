@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Augmented</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "bootstrap.js" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+    
+  <div class="row no-margin">
+    <div class="col-md-12 navbar_plate">
+      <nav class="navbar navbar-light bg-light">
+         <div class="row">
+             <div class="col-md-2 col-xs-2"></div>
+             <div class="col-md-6 col-xs-6 padding-buttons">
+                 <table>
+                     <tr>
+                         <td><%= link_to '<i class="fa fa-home" aria-hidden="true"></i> Home'.html_safe, root_path, class: 'btn btn-primary btn-sm' %></td>
+                         <td>
+                            <% if current_user %>
+                                <span><%= link_to 'Resumo da conta', '/user/index', class: 'btn btn-primary btn-sm'%></span>
+                            <% end %>
+                            </td>
+                     </tr>
+                 </table>
+            </div>
+             <div align="center" class="col-md-2 col-xs-2 padding-buttons">
+               <div class="row">
+                 <div class="col-md-6 col-xs-6">
+                   
+                  <% if current_user %>
+                  <table>
+                      <tr>
+                          <td class="white email_space"><%= current_user.email.capitalize %></td>
+                          <td>
+                            <%= link_to sign_out_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+                                Logout
+                            <% end %>
+                          </td>
+                      </tr>
+                  </table>
+                  
+                  <% else %>
+                  
+                  <table>
+                      <tr>
+                            <td><%= link_to sign_in_path, class: 'btn btn-primary btn-sm' do %>
+                                    Login <i class="fa fa-user" aria-hidden="true"></i>
+                                <% end %>
+                            </td>
+                            <td>
+                                <%= link_to '/users/new', class: 'btn btn-primary btn-sm' do %>
+                                    Cadastrar &raquo;
+                                <% end %>
+                            </td>
+                      </tr>
+                  </table>
+                  <% end %>
+                  
+                 </div>
+                 <div class="col-md-6 col-xs-6">
+                   <!-- EXEMPLO de como saber se o usuário está logado ou não-->
+                   
+                   
+                 </div>
+               </div>
+                 
+                
+              
+             </div>
+             <div class="col-md-2"></div>
+          </div>
+      </nav>
+    </div>
+  </div>
+  <div align="center" class="col-md-12">
+        <h1 class="index_title">Augment your business</h1>
+    </div>
+<div class="row no-margin">
+  <div class="col-md-2 col-xs-2"></div>
+  <div class="col-md-8 col-xs-8 content"><%= yield %></div>
+  <div class="col-md-2 col-xs-2"></div>
+</div>
+
+
+</body>
+</html>
