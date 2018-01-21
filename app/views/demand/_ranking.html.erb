@@ -15,11 +15,11 @@
                 
                     <tr>
                       <td><%= cont += 1 %>°</td>
-                      <td><%= User.find(commit.user_id).email %></td>
+                      <td><%= User.find(commit.user_id.to_s).email %></td>
                       <td><%= commit.title %></td>
                       <td><%= commit.score %></td>
                     </tr>
-            <%end%>
+            <% end %>
      </tbody>
     </table>
     </div>
