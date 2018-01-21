@@ -8870,6 +8870,20 @@ body {
   padding-bottom: 20px;
   margin-bottom: 50px;
 }
+
+/* line 34, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+.logged_navbar {
+  padding-top: 15px;
+  background-color: #3085E8;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-bottom: 7vh;
+}
+
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/application.scss */
+.navbar-light {
+  min-height: 0px !important;
+}
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)

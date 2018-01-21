@@ -11,12 +11,34 @@
 
 
     
-  <div class="row no-margin">
-    <div class="col-md-12 navbar_plate">
+  
+  <% if !current_user %>
+  <div align="center" id="banner" class="col-md-12 col-xs-12 row_banner">
+      <h1 class="index_title">Augment your business</h1>
+      <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-8 col-xs-8">
+              <div class="row">
+                    <div align="center" class="col-md-6">
+                        <img src="/images/leaderboard.png">
+                        <h4>Crie competições</h4>
+                        <p>Crie competições na plataforma para encontrar as melhores soluções para o seu problema</p>
+                    </div>
+                  <div align="center" class="col-md-6">
+                      <img src="/images/search.png">
+                      <h4>Encontre pessoas para investir</h4>
+                        <p>Encontre na nossa plataforma ideias inovadoras que estão em busca de um incentivo para sair do papel</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  <% else %>
+  <div class="row logged_navbar">
+    <div class="col-md-12">
       <nav class="navbar navbar-light bg-light">
          <div class="row">
              <div class="col-md-2 col-xs-2"></div>
-             <div class="col-md-6 col-xs-6 padding-buttons">
+             <div class="col-md-6 col-xs-6">
                  <table>
                      <tr>
                          <td><%= link_to '<i class="fa fa-home" aria-hidden="true"></i> Home'.html_safe, root_path, class: 'btn btn-primary btn-sm' %></td>
@@ -25,10 +47,13 @@
                                 <span><%= link_to 'Resumo da conta', '/user/index', class: 'btn btn-primary btn-sm'%></span>
                             <% end %>
                             </td>
+                            <td style="padding-left: 15px;" class="white">
+                                Circle <img id="logo" src="/images/logo.png" height="24" width="24"> solutions
+                            </td>
                      </tr>
                  </table>
             </div>
-             <div align="center" class="col-md-2 col-xs-2 padding-buttons">
+             <div align="center" class="col-md-2 col-xs-2">
                <div class="row">
                  <div class="col-md-6 col-xs-6">
                    
@@ -64,13 +89,8 @@
                  </div>
                  <div class="col-md-6 col-xs-6">
                    <!-- EXEMPLO de como saber se o usuário está logado ou não-->
-                   
-                   
                  </div>
                </div>
-                 
-                
-              
              </div>
              <div class="col-md-2"></div>
           </div>
@@ -78,25 +98,16 @@
     </div>
   </div>
   
-  <div align="center" id="banner" class="col-md-12 row_banner">
-      <h1 class="index_title">Augment your business</h1>
-      <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8 col-xs-8">
-              <div class="row">
-                    <div align="center" class="col-md-6">
-                        <img src="/images/leaderboard.png">
-                        <h4>Crie competições</h4>
-                        <p>Crie competições na plataforma para encontrar as melhores soluções para o seu problema</p>
-                    </div>
-                  <div align="center" class="col-md-6">
-                      <img src="/images/search.png">
-                      <h4>Encontre pessoas para investir</h4>
-                        <p>Encontre na nossa plataforma ideias inovadoras que estão em busca de um incentivo para sair do papel</p>
-                  </div>
-              </div>
-          </div>
   
+  
+ <!-- <div class="row logged_navbar">
+      <div class="col-md-2 col-xs-2"></div>
+      <div align="center" id="banner" class="col-md-8 col-xs-8">
+          <fieldset><legend><b></b></legend></fieldset>
+      </div>
+      <div class="col-md-2 col-xs-2"></div> -->
+  </div>
+  <% end %>
       </div>
            
     </div>

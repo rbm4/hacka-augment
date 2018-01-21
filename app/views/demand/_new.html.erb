@@ -4,6 +4,14 @@
                                 <%= f.text_field :name, class: 'form-control', required: true %>
                             </div>
                             <div class="form-group">
+                                <%= f.label :short_description, "Descrição curta" %>
+                                <%= f.text_field :short_description, class: 'form-control', required: true %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :image_path, "Foto miniatura" %>
+                                <%= f.text_field :image_path, class: 'form-control', required: true %>
+                            </div>
+                            <div class="form-group">
                                 <%= f.label :description, "Descrição" %>
                                 <%= f.text_area :description, class: 'form-control', required: true %>
                             </div>
@@ -15,14 +23,8 @@
                                 <%= f.label :rules, "Regras" %>
                                 <%= f.text_area :rules, class: 'form-control', required: true %>
                             </div>
-                            <div class="form-group">
-                                <%= f.label :image_path, "Foto miniatura" %>
-                                <%= f.text_field :image_path, class: 'form-control', required: true %>
-                            </div>
-                            <div class="form-group">
-                                <%= f.label :short_description, "Descrição curta" %>
-                                <%= f.text_field :short_description, class: 'form-control', required: true %>
-                            </div>
+                            
+                            
                             <div class="form-group">
                                 <%= f.submit "Submeter", class: 'form-control', required: true %>
                             </div>

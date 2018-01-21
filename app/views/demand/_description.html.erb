@@ -1,2 +1,9 @@
 <h2>Objetivo geral da demanda:</h2>
 <%= @object.description.html_safe %>
+
+<script>
+    $(document).ready(function(){
+        $('img').addClass('img-thumbnail thumbnails');
+        $("#logo").removeClass('img-thumbnail thumbnails');
+    })
+</script>
