@@ -36,7 +36,7 @@ class StaticPagesController < ApplicationController
         if params[:partial] == "submit"
             @entrega = current_user.entrega.new
         elsif params[:partial] == "ranking"
-            @objects = @object.entrega.where("status = :stt",{stt: "Aceita"}).order(score: :asc)
+            @objects = Entrega.where("status = :stt AND demand_id = :dmm",{stt: "Aceita", dmm: @object.id}).order(score: :asc)
         end
     end
     def offer
